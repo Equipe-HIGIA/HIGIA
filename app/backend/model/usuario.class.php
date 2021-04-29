@@ -44,7 +44,7 @@ function valida() {
       $_SESSION['usuarionome'] =  $reg["nome"];
       $_SESSION['usuariocidade'] =  $reg["cidade"];
       $_SESSION['usuarioendereco'] =  $reg["endereco"];
-       $_SESSION['usuarionotificacao'] =  $reg["clique"];
+    $_SESSION['usuarionotificacao'] =  $reg["clique"];
      
      
       
