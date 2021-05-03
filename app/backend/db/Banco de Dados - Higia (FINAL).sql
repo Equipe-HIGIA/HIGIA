@@ -48,8 +48,16 @@ cliente_id int,
 profissional_id int,
 data timestamp,
 comentario varchar(255),
-nota int
+nota int,
+moderador varchar(100) DEFAULT 'não'
 );
+
+create table notificacao(
+id int primary key auto_increment,
+clique int
+);
+
+
 
 alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id);
 

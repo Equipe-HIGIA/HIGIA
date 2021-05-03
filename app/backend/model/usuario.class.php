@@ -24,7 +24,7 @@ function valida() {
            //$sql ="SELECT id, cep, nome, cidade, endereco FROM usuario   LEFT JOIN cliente_profissional  on  (usuario.id = cliente_profissional.id)  WHERE usuario.senha = :usuario.senha  AND  usuario.cpf LIKE :usuario.cpf";
           //$sql ="  SELECT * FROM usuario u left join  cliente_profissional cp  on (u.id = cp.id) where cpf like :cpf and  senha = :senha ";
 
-          $sql = "SELECT * FROM usuario u left join  cliente_profissional cp   on (u.id = cp.id)   left join  profissional p  on (p.id = cp.id) where cpf like :cpf and  senha = :senha ";
+          $sql = "SELECT * FROM usuario u left join notificacao n  on (u.id = n.id)   left join  profissional p  on (p.id = n.id) where cpf like :cpf and  senha = :senha ";
            $pdo = new Connection();
     $st = $pdo->prepare($sql);
     $st->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
@@ -75,7 +75,7 @@ function incluir() {
     $this->id = $pdo->lastInsertId();
 
     
-    $stmt = $pdo->prepare(" INSERT INTO cliente_profissional(clique) values (:clique)");
+    $stmt = $pdo->prepare(" INSERT INTO notificacao(clique) values (:clique)");
    
     $stmt->bindValue(':clique', $clique);
    
