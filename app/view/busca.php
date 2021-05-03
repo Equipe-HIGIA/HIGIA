@@ -95,7 +95,7 @@ if (count($resultados)) {
   Contato
 </button>
 
-<input type="hidden" id="pegaid" name="meu_id" value="<?php echo $Resultado['id']; ?>">
+<input type="hidden" id="pegaid" name="meu_id" value="<?php    echo $Resultado['id']; ?>">
 
 </form>  
 
@@ -126,7 +126,7 @@ if (count($resultados)) {
 
 
          <div class="form-floating mb-4">
-  <textarea class="form-control" name="comentario" id="floatingTextarea"></textarea>
+  <textarea class="form-control" name="comentario" id="floatingTextarea"></textarea><input type="hidden" name="moderar" value="não" />
   <label for="floatingTextarea">Fazer comentario</label>
         </div>
         <input class="btn btn-primary" type="submit" name="Enviar" value="Submit">
@@ -140,7 +140,7 @@ if (count($resultados)) {
      
      
 <?php
-$sql = "SELECT id, nota, comentario, data FROM cliente_profissional ORDER BY data DESC";
+$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'sim' ORDER BY data DESC";
 $sql = $pdo->query($sql);
 ?>
 

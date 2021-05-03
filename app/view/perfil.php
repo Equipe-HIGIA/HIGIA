@@ -52,10 +52,10 @@ session_start();
                                 <br><?php
    echo "CEP: ". $_SESSION["usuariocep"];
 ?> <br><?php
-echo "ID: ". $_SESSION["usuario"];
+echo "ID: ". $_SESSION['usuario'];
 ?>
 <br><?php
- echo "Cidade: ". $_SESSION["usuariocidade"];
+ echo "Cidade: ". $_SESSION['usuariocidade'];
     ?><br><?php
     echo "Endereço: ". $_SESSION["usuarioendereco"];
        ?><br>
