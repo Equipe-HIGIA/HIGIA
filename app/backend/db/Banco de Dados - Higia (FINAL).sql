@@ -49,15 +49,10 @@ profissional_id int,
 data timestamp,
 comentario varchar(255),
 nota int,
-moderador varchar(100) DEFAULT 'não'
+clique int,
+moderador varchar(100) DEFAULT 'não',
+identificacao int
 );
-
-create table notificacao(
-id int primary key auto_increment,
-clique int
-);
-
-
 
 alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id);
 
@@ -65,3 +60,4 @@ alter table cliente_profissional add constraint fk_cliente_profissional_profissi
 
  -- select * from usuario  left join  cliente_profissional    on (usuario.id =  cliente_profissional .id)   left join  profissional   on (profissional.id =  cliente_profissional.id) where usuario.cpf like usuario.cpf and usuario.senha = usuario.senha;
 select * from profissional left join cliente_profissional on (profissional.id = cliente_profissional .id);
+select * from usuario u left join notificacao n  on (u.id = n.id)   where u.cpf like u.cpf and  u.senha = u.senha; 
