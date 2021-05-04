@@ -12,7 +12,7 @@ if(isset($_POST['Enviar'])){
     $dados->comentario = $_POST['comentario'];
     $dados->nota = $_POST['rating'];
     $dados->moderador = $_POST['moderador'];
-   
+    $dados->identificacao = $_POST['identificacao'];
     $dados->ComentaNota();
     
     echo "<script language='javascript' type='text/javascript'>
