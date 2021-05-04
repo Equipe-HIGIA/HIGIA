@@ -11,6 +11,7 @@ if(isset($_POST['Enviar'])){
     $dados = new ComentarioNotas();
     $dados->comentario = $_POST['comentario'];
     $dados->nota = $_POST['rating'];
+    $dados->moderador = $_POST['moderador'];
    
     $dados->ComentaNota();
     

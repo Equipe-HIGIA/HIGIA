@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once("../backend/db/connection.class.php");
+$pdo = new Connection();
 
 ?>
 
@@ -98,29 +100,57 @@ echo "ID: ". $_SESSION['usuario'];
   </div>
 </div>
 
-<!-- Full screen modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  
-<div class="modal-dialog modal-fullscreen-xxl-down">
-<div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-</div>
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Administrar comentarios
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+ 
+  <?php
+
+$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' ORDER BY data DESC";
+$sql = $pdo->query($sql);
+?>
+
+<?php
+if($sql->rowCount() >= 1){
+  foreach($sql->fetchAll() as $mensagem):
+    //foreach($sql->fetchColumn(5) as $mensagem):
+    
+    ?>
+
+<div class="shadow mb-4 border">
+
+
+
+<p class="m-2"><strong ><?php echo $mensagem['comentario']; ?></strong></p> <br>
+<hr>
+<p class="fw-light"><?php echo $mensagem['data']; ?></p>
+<span class="badge bg-secondary m-2"><a  class="nav-link text-white" href='../backend/controller/liberarcomentario.php?id=<?php echo $mensagem['id']; ?>'>permitir comentario</a></span>
+<span class="badge bg-secondary m-2"><a  class="nav-link text-white" href='../backend/controller/excluircomentario.php?id=<?php echo $mensagem['id']; ?>'>reprovar comentario</a></span>
+   
+
+
 </div>
 
+<?php
+  endforeach;
+} else {
+  echo "Não há mensagens.";
+}
+?>
+ </div>
+</div>
   </div>
 </div>
     </footer>
+
+    
+
+
+
+
     </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
