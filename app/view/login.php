@@ -14,19 +14,20 @@
 
 
 </head>
-<body class="bg-white">
-    
-<div class="container d-flex justify-content-center">
+<body class="bg-light">
 
-<div class=" card  shadow-lg text-center" style="width: 35rem;">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-    
-    <a>Faça o Login</a>
-      
-    </ul>
+<div class="container">
+
+<div class=" card  shadow-lg text-center  position-absolute top-50 start-50 translate-middle" style=" width: 49rem;">
+<div class="row g-0">
+
+  <div class="col-md-4">
+      <img src="../../img/l.jpg" alt="..." style="max-width: 277px; height:360px;">
+      <h3 class="position-absolute top-0 start-0 ">Faça o seu login</h3>  
+
   </div>
-  <div class="card-body">
+    <div class="col-md-8">
+  <div class="card-body m-1">
    
    
 
@@ -40,11 +41,9 @@
     <label for="exampleInputPassword1" class="form-label">Senha</label>
     <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    
-  </div>
+ 
   <button  type="submit"class="btn btn-outline-warning">Login</button>
+
 <p class="text-center text-danger">
 <?php
 session_start();
@@ -66,9 +65,11 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']==0) {
 </form>
    
    </div>
-   <button class="btn btn-primary botao-volta" onclick="window.history.back()">Voltar</button>  </div>
+   <button class="btn btn-primary botao-volta" onclick="window.history.back()">Voltar</button>  
+   </div>
 </div>
-
+</div>
+</div>
 </div>
 
 

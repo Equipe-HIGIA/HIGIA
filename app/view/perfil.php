@@ -37,18 +37,20 @@ $pdo = new Connection();
 
         <div class="container-md">
 
+        <div class="card text-center rounded-3 border-warning shadow-lg mb-3 position-absolute top-50 start-50 translate-middle"style="max-width: 18rem;">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <button class="btn btn-primary m-3 nav-link active" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary"><?php
+       echo $_SESSION['usuarionotificacao'];
+          ?></span></button>
 
-
-            <div class="card rounded-3 border-warning shadow-lg mb-3 position-absolute top-50 start-50 translate-middle"style="max-width: 48rem;">
-
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="..." alt="...">
-                    </div>
-                    <div class="col-md-8">
-
-                        <div class="card-body">
-                            <h5 class="card-title"><?php  echo"Nome: ". $_SESSION["usuarionome"]; ?></h5>
+      </li>
+    
+    </ul>
+  </div>
+  <div class="card-body">
+  <h5 class="card-title"><?php  echo"Nome: ". $_SESSION["usuarionome"]; ?></h5>
                             <p class="card-text">
 
                                 <br><?php
@@ -63,20 +65,13 @@ echo "ID: ". $_SESSION['usuario'];
        ?><br>
                              </p>
                         </div>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
-     
+  </div>
+</div>
 
     </main>
 
     <footer>
-    <button class="btn btn-primary position-absolute top-50 end-0 translate-middle-y m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary"><?php
-       echo $_SESSION['usuarionotificacao'];
-          ?></span></button>
-
+   
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 id="offcanvasRightLabel">Sistema </h5>
@@ -86,6 +81,10 @@ echo "ID: ". $_SESSION['usuario'];
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações<span class="badge bg-secondary"><?php
        echo $_SESSION['usuarionotificacao'];
           ?></span></button>
+          
+<button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Administrar comentarios
+  </button>
   <div class="row">
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample2">
@@ -100,16 +99,13 @@ echo "ID: ". $_SESSION['usuario'];
   </div>
 </div>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Administrar comentarios
-  </button>
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
  
   <?php
-
-$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' ORDER BY data DESC";
+$idtes = $_SESSION['usuario'];
+$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' AND identificacao =  '$idtes' ORDER BY data DESC";
 $sql = $pdo->query($sql);
 ?>
 

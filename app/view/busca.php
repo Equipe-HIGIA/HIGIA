@@ -86,8 +86,7 @@ if (count($resultados)) {
  
 <div class="d-flex">
 
-  <form name="contactform" method="post" action="dados_anucio.php">
-
+  <form name="contactform" method="POST" action="dados_anucio.php">
 
 
 <!-- Button trigger modal -->
@@ -95,8 +94,7 @@ if (count($resultados)) {
   Contato
 </button>
 
-<input type="hidden" id="pegaid" name="meu_id" value="<?php    echo $Resultado['id']; ?>">
-
+<input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>">
 </form>  
 
 <!-- Button trigger modal -->
@@ -122,7 +120,7 @@ if (count($resultados)) {
   
 <div id="rateYo<?php echo $Resultado['id']; ?>" class="mb-3"></div>
 
-<input type="hidden" id="rating" name="rating" >
+<input type="hidden" id="rating<?php echo $Resultado['id']; ?>" name="rating" >
 
 
          <div class="form-floating mb-4">
@@ -135,13 +133,12 @@ if (count($resultados)) {
         <input class="btn btn-primary" type="submit" name="Enviar" value="Submit">
 
      </form>
-
 </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body mb-4 shadow-sm">
      
-     
+     <h5>obervação os comentario será enviada pelo profissional depois sera realizada  a postagem do comentario.</h5>
 <?php
 
 $idpost = $Resultado['id'];
@@ -154,7 +151,6 @@ $sql = $pdo->query($sql);
 
 if($sql->rowCount() >= 1){
     foreach($sql->fetchAll() as $mensagem):
-      //foreach($sql->fetchColumn(5) as $mensagem):
       
       ?>
 
@@ -222,7 +218,9 @@ $(function () {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      <p class="card-text fs-5">raio de atuação:<?php echo $Resultado['raio']; ?></p>
+      <p class="card-text fs-5">Idade que atende:<?php echo $Resultado['idades']; ?></p>
+  
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -271,7 +269,7 @@ $(function () {
    fullStar: true,
    onSet: function (rating, rateYoInstance) {
  
-$("#rating").val(rating);
+$("#rating<?php echo $Resultado['id']; ?>").val(rating);
 }
  });
 

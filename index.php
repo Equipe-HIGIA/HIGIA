@@ -68,7 +68,7 @@
     </nav>
     
     <!--   -->
-    <div class="centralizar">
+    <div class="centralizar"> 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
   <div class="carousel-item active" data-bs-interval="10000" id="bgvid" >
@@ -90,7 +90,7 @@
      </div>
 
   </div>
-</div>
+  </div>
 
 <div class="bgvid container-fluid">
 <a class="navbar-brand nav-link disabled text-white centralizar" href="index.php"><img id="logohigia" src="img/logo.png"  width="125" height="125"></a>
