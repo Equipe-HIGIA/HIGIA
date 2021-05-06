@@ -10,7 +10,9 @@ $servico = "%".trim($_GET['servico']."%");
 
 $pdo = new Connection();
 
-$st = $pdo->prepare('SELECT * FROM profissional WHERE servico LIKE :servico ');
+//$st = $pdo->prepare('SELECT * FROM profissional  WHERE servico LIKE :servico ');
+$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.nome )  WHERE servico LIKE :servico ');
+
 
 $st->bindParam(':servico', $servico ,PDO::PARAM_STR);
 
@@ -86,7 +88,7 @@ if (count($resultados)) {
  
 <div class="d-flex">
 
-  <form name="contactform" method="POST" action="dados_anucio.php">
+  <form name="contactform" method="POST" action="../backend/controller/dados_anucio.php">
 
 
 <!-- Button trigger modal -->
@@ -214,13 +216,17 @@ $(function () {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo $Resultado['nome']; ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <p class="card-text fs-5">raio de atuação:<?php echo $Resultado['raio']; ?></p>
       <p class="card-text fs-5">Idade que atende:<?php echo $Resultado['idades']; ?></p>
-  
+      <p class="card-text fs-5">celular de contato:<?php echo $Resultado['celular']; ?></p>
+      <p class="card-text fs-5">fixo de contato:<?php echo $Resultado['fixo']; ?></p>
+      <p class="card-text fs-5">cidade:<?php echo $Resultado['cidade']; ?></p>
+      <p class="card-text fs-5">paginas:<?php echo $Resultado['paginas']; ?></p>
+    
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -289,7 +295,7 @@ $("#enviar<?php echo $Resultado['id']; ?>").click(function(){
        
 $.ajax({
    dataType:'html',
-   url:"dados_anucio.php",
+   url:"../backend/controller/dados_anucio.php",
    type:"POST",
    data:({ enviar2:$("button[name='enviar2']").val(), meu_id:$("input[name='meu_id']").val()}),
    beforeSend: function(data){ 

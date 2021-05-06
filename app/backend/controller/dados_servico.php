@@ -18,6 +18,7 @@ $ds->servico = $_POST['servico'];
 $ds->raio = $_POST['raio'];
 $ds->idades = $_POST['idades'];
 $ds->especial = $_POST['especial'];
+$ds->identificacao_anucio = $_POST['identificacao_anucio'];
 $ds->Dads();
 }
 

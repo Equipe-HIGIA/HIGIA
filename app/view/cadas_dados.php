@@ -1,4 +1,8 @@
+<?php
+session_start();
+require_once("../backend/db/connection.class.php");
 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -117,6 +121,7 @@
   <input type="number" class="form-control" name="grupo" placeholder="Quantidade de Pessoas">
 </div>
 
+<input  id="pegaridop" type="hidden" name="identificacao_anucio" value="<?php    echo $_SESSION['usuarionome']; ?>">
 
 
 <div class="mb-3">

@@ -15,7 +15,6 @@ class Usuario {
 
 
 
-
     
 
 function valida() {
@@ -67,6 +66,7 @@ function incluir() {
     $st->bindParam(':email',$this->email,PDO::PARAM_STR);
     $st->bindParam(':genero',$this->genero,PDO::PARAM_STR);
     $st->bindParam(':nome',$this->nome,PDO::PARAM_STR);
+   
     $st->execute();    
     $this->id = $pdo->lastInsertId();
 

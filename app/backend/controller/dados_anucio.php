@@ -1,7 +1,7 @@
 <?php
 
 
-require_once("../backend/db/connection.class.php");
+require_once("../db/connection.class.php");
 
 $id = $_POST['meu_id'];
 

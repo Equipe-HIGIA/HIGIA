@@ -2,6 +2,7 @@
 
 CREATE TABLE USUARIO(
 id int primary key auto_increment,
+id_usuario int primary key auto_increment,
 cpf varchar(14) not null,
 senha varchar(128) not null,
 nome varchar(255) not null,
@@ -28,6 +29,7 @@ servico text,
 raio decimal(6,2),
 idades varchar(255),
 especial char(1) default 'S',
+identificacao_anucio varchar(110),
 usuario_id int
 );
 

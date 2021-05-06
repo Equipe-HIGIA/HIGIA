@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,7 +32,7 @@
     <div class="container text-center">
        <h5 class="fs-3">Cadastro de Usuário</h5>
     </div>
-
+  
     <div class="mb-3">
       <label for="cpf" class="form-label">CPF</label>
       <input type="text" name="cpf" class="form-control"  placeholder="">
