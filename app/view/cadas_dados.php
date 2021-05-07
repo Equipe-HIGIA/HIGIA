@@ -54,15 +54,21 @@ require_once("../backend/db/connection.class.php");
 
 <p class=" d-flex justify-content-center  align-items-center">
 
+<?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <button class="btn btn-outline-warning shadow-sm m-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Cadastro para Cliente 
 </button>
+<?php }else{echo"<div class='container-fluid  d-flex justify-content-center'><div class='alert alert-danger d-inline-flex  align-items-center p-2 ' role='alert'>
+
+  você ja fez o cadastro de cliente!</div></div>";}?>
 </p>
 <div class="collapse" id="collapseExample">
 <div class="card card-body border-dark">
 
 <form   method="POST" action="../backend/controller/dados_cliente.php" id="form1">
 <div class="mb-3">
+<input  id="pegaridoc" type="hidden" name="identificacao_cliente" value="<?php    echo $_SESSION['usuario']; ?>">
+
   <label for="nivel" class="form-label">Horas de Atividade Fisica por dia</label>
   <input type="text" class="form-control" name="nivel" placeholder="Horas por dia">
 </div>
@@ -108,9 +114,12 @@ require_once("../backend/db/connection.class.php");
 
 <p class=" d-flex justify-content-center  align-items-center">
 
+<?php if( $_SESSION['usuarioidentificacao_anucio'] == 0){ ?>
 <button class="btn btn-outline-warning shadow-sm m-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
   Cadastro para Profissional
 </button>
+<?php }else{echo"<div class='container-fluid  d-flex justify-content-center'><div class='alert alert-danger d-inline-flex  align-items-center p-2 ' role='alert'> você ja fez o cadastro do serviço!</div></div>";} ?>
+
 </p>
 <div class="collapse" id="collapse2">
 <div class="card card-body border-dark">
@@ -121,7 +130,7 @@ require_once("../backend/db/connection.class.php");
   <input type="number" class="form-control" name="grupo" placeholder="Quantidade de Pessoas">
 </div>
 
-<input  id="pegaridop" type="hidden" name="identificacao_anucio" value="<?php    echo $_SESSION['usuarionome']; ?>">
+<input  id="pegaridop" type="hidden" name="identificacao_anucio" value="<?php    echo $_SESSION['usuario']; ?>">
 
 
 <div class="mb-3">

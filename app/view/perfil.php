@@ -105,7 +105,7 @@ echo "ID: ". $_SESSION['usuario'];
  
   <?php
 $idtes = $_SESSION['usuario'];
-$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' AND identificacao =  '$idtes' ORDER BY data DESC";
+$sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' AND identificacao_anucio =  '$idtes' ORDER BY data DESC";
 $sql = $pdo->query($sql);
 ?>
 

@@ -19,27 +19,46 @@ class Usuario {
 
 function valida() {
       
-          $sql = "SELECT * FROM usuario u left join notificacao n  on (u.id = n.id) left join cliente_profissional cp on(u.id = cp.id) left join profissional  p on( cp.identificacao = p.id )   where cpf like :cpf and  senha = :senha ";
-           $pdo = new Connection();
-    $st = $pdo->prepare($sql);
+    $sql = "SELECT * FROM usuario where cpf like :cpf and  senha = :senha ";
+  
+   $pdo = new Connection();
+     $st = $pdo->prepare($sql);
     $st->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
-    $st->bindParam(':senha',$this->senha,PDO::PARAM_STR);
+     $st->bindParam(':senha',$this->senha,PDO::PARAM_STR);
     $st->execute();
    
-    if ($st->rowCount()==0){
+    $sql2 = "SELECT * FROM usuario u left join notificacao n  on (u.id = n.id) left join cliente_profissional cp on(u.id = cp.id) left join profissional  p on( cp.identificacao = p.id )   where cpf like :cpf and  senha = :senha ";
+  
+    $pdo = new Connection();
+      $stm = $pdo->prepare($sql2);
+     $stm->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
+      $stm->bindParam(':senha',$this->senha,PDO::PARAM_STR);
+     $stm->execute();
+    
+     $sql3 = "SELECT * FROM usuario u left join cliente c on (c.identificacao_cliente = u.id) where cpf like :cpf and  senha = :senha ";
+     $pdo = new Connection();
+     $stmc = $pdo->prepare($sql3);
+    $stmc->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
+     $stmc->bindParam(':senha',$this->senha,PDO::PARAM_STR);
+    $stmc->execute();
+     if ($st->rowCount()==0 && $stm->rowCount()==0 && $stmc->rowCount()==0) {
        
         return false; 
     } else {
         //$reg = $st->fetchAll();
      $reg = $st->fetch();
-        
+     $reg2 = $stm->fetch();
+     $reg3 = $stmc->fetch();
+     
        // $this->id = $reg[0]["id"];
-      $_SESSION['usuario'] =  $reg["id"];
+     $_SESSION['usuario'] =  $reg["id"];
       $_SESSION['usuariocep'] =  $reg["cep"];
       $_SESSION['usuarionome'] =  $reg["nome"];
       $_SESSION['usuariocidade'] =  $reg["cidade"];
-      $_SESSION['usuarioendereco'] =  $reg["endereco"];
-     $_SESSION['usuarionotificacao'] =  $reg["clique"];
+     $_SESSION['usuarioendereco'] =  $reg["endereco"];
+     $_SESSION['usuarionotificacao'] =  $reg2["clique"];
+     $_SESSION['usuarioidentificacao_anucio'] =  $reg2["identificacao_anucio"];
+     $_SESSION['usuarioidentificacao_cliente'] =  $reg3["identificacao_cliente"];
      
      
       

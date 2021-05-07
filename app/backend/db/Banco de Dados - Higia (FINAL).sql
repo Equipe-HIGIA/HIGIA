@@ -2,7 +2,6 @@
 
 CREATE TABLE USUARIO(
 id int primary key auto_increment,
-id_usuario int primary key auto_increment,
 cpf varchar(14) not null,
 senha varchar(128) not null,
 nome varchar(255) not null,
@@ -13,7 +12,7 @@ cidade int not null,
 celular varchar(20) not null,
 fixo varchar(20),
 email varchar(255) not null,
-genero char(1)
+genero char(55)
 
 );
 
@@ -22,14 +21,14 @@ id int primary key auto_increment,
 paginas varchar(255),
 especialidade varchar(255) not null,
 qualificacao varchar(255) not null,
-ambiente char(1),
+ambiente char(55),
 grupo int default 1,
-localatendimento char(1),
+localatendimento char(55),
 servico text,
 raio decimal(6,2),
 idades varchar(255),
-especial char(1) default 'S',
-identificacao_anucio varchar(110),
+especial char(55) default 'SIM',
+identificacao_anucio int,
 usuario_id int
 );
 
@@ -39,6 +38,7 @@ create table cliente(
 id int primary key auto_increment,
 nivel int,
 medicamentos varchar(255),
+identificacao_cliente int,
 usuario_id int
 );
 
@@ -51,15 +51,17 @@ profissional_id int,
 data timestamp,
 comentario varchar(255),
 nota int,
-clique int,
 moderador varchar(100) DEFAULT 'não',
 identificacao int
 );
 
-alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id);
+ create table notificacao(
+id int primary key auto_increment,
+clique int
 
-alter table cliente_profissional add constraint fk_cliente_profissional_profissional foreign key (profissional_id) references profissional(id);
+ );
 
- -- select * from usuario  left join  cliente_profissional    on (usuario.id =  cliente_profissional .id)   left join  profissional   on (profissional.id =  cliente_profissional.id) where usuario.cpf like usuario.cpf and usuario.senha = usuario.senha;
-select * from profissional left join cliente_profissional on (profissional.id = cliente_profissional .id);
-select * from usuario u left join notificacao n  on (u.id = n.id)   where u.cpf like u.cpf and  u.senha = u.senha; 
+alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id_cliente);
+
+alter table cliente_profissional add constraint fk_cliente_profissional_profissional foreign key (profissional_id) references profissional(id_profissional);
+

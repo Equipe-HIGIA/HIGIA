@@ -9,6 +9,8 @@ $con = new Connection();
 $dados = new DadosCliente();
 $dados->nivel = $_POST['nivel'];
 $dados->medicamentos = $_POST['medicamentos'];
+$dados->identificacao_cliente = $_POST['identificacao_cliente'];
+
 $dados->Dadc();
 
 echo "<script language='javascript' type='text/javascript'>
