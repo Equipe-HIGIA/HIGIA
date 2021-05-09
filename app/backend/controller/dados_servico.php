@@ -23,7 +23,7 @@ $ds->Dads();
 }
 
 echo "<script language='javascript' type='text/javascript'>
-window.location.href='../../view/';
+window.location.href='../../view/login.php';
 </script>";
 ?>
 

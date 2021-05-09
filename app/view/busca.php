@@ -88,22 +88,23 @@ if (count($resultados)) {
  
 <div class="d-flex">
 
-  <form name="contactform" method="POST" action="../backend/controller/dados_anucio.php">
-
+ 
 
 <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-primary mx-auto mb-3"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
  contato
 </button>
 
 
-<?php }else{?><button type="button" class="btn btn-primary mx-auto mb-3"  name="enviar2" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
+<?php }else{?>
+  <form name="contactform" method="POST" action="../backend/controller/dados_anucio.php">
+<button type="button" class="btn btn-primary mx-auto mb-3"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
   Contato
-</button><?php }?>
+</button>
+<input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>"/>
+</form>  <?php }?>
 
-<input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>">
-</form>  
 
 
 <!-- Modal -->
@@ -325,9 +326,9 @@ $.ajax({
    dataType:'html',
    url:"../backend/controller/dados_anucio.php",
    type:"POST",
-   data:({ enviar2:$("button[name='enviar2']").val(), meu_id:$("input[name='meu_id']").val()}),
+   data:({  meu_id:$("input[name='meu_id']").val()}),
    beforeSend: function(data){ 
-
+    //enviar2:$("button[name='enviar2']").val(),
 }, success:function(data){
      
 }, complete: function(data){}

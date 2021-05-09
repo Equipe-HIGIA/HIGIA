@@ -13,9 +13,11 @@ $dados->identificacao_cliente = $_POST['identificacao_cliente'];
 
 $dados->Dadc();
 
+
 echo "<script language='javascript' type='text/javascript'>
-window.location.href='../../view/';
+window.location.href='../../view/login.php';
 </script>";
+
 }
 
 ?>

@@ -41,7 +41,15 @@ function valida() {
     $stmc->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
      $stmc->bindParam(':senha',$this->senha,PDO::PARAM_STR);
     $stmc->execute();
-     if ($st->rowCount()==0 && $stm->rowCount()==0 && $stmc->rowCount()==0) {
+
+    $sql4 = "SELECT * FROM usuario u left join profissional c on (c.identificacao_anucio = u.id) where cpf like :cpf and  senha = :senha ";
+     $pdo = new Connection();
+     $stmtc = $pdo->prepare($sql4);
+    $stmtc->bindParam(':cpf',$this->cpf,PDO::PARAM_STR);
+     $stmtc->bindParam(':senha',$this->senha,PDO::PARAM_STR);
+    $stmtc->execute();
+
+     if ($st->rowCount()==0 && $stm->rowCount()==0 && $stmc->rowCount()==0 && $stmtc->rowCount()==0) {
        
         return false; 
     } else {
@@ -49,15 +57,26 @@ function valida() {
      $reg = $st->fetch();
      $reg2 = $stm->fetch();
      $reg3 = $stmc->fetch();
+     $reg4 = $stmtc->fetch();
      
        // $this->id = $reg[0]["id"];
-     $_SESSION['usuario'] =  $reg["id"];
+      $_SESSION['usuario'] =  $reg["id"];
       $_SESSION['usuariocep'] =  $reg["cep"];
       $_SESSION['usuarionome'] =  $reg["nome"];
       $_SESSION['usuariocidade'] =  $reg["cidade"];
-     $_SESSION['usuarioendereco'] =  $reg["endereco"];
+      $_SESSION['usuarioendereco'] =  $reg["endereco"];
+    
      $_SESSION['usuarionotificacao'] =  $reg2["clique"];
-     $_SESSION['usuarioidentificacao_anucio'] =  $reg2["identificacao_anucio"];
+     $_SESSION['usuarioraio'] =  $reg2["raio"];
+     $_SESSION['usuariodades'] =  $reg2["idades"];
+     $_SESSION['usuarioserviço'] =  $reg2["servico"];
+     $_SESSION['usuariopaginas'] =  $reg2["paginas"];
+     $_SESSION['usuarioespecialidade'] =  $reg2["especialidade"];
+     $_SESSION['usuarioambiente'] =  $reg2["ambiente"];
+     $_SESSION['usuarioqualificacao'] =  $reg2["qualificacao"];
+     $_SESSION['usuariolocalatendimento'] =  $reg2["localatendimento"];
+     $_SESSION['usuarioidentificacao_anucio'] =  $reg4["identificacao_anucio"];
+
      $_SESSION['usuarioidentificacao_cliente'] =  $reg3["identificacao_cliente"];
      
      
