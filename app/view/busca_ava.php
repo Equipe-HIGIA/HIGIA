@@ -1,6 +1,8 @@
 <?php
 
 
+session_start();
+
 
 require_once("../backend/db/connection.class.php");
 
