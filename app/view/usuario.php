@@ -35,7 +35,7 @@
   
     <div class="mb-3">
       <label for="cpf" class="form-label">CPF</label>
-      <input type="text" name="cpf" class="form-control"  placeholder="">
+      <input type="text" name="cpf" class="form-control cpf"  placeholder="">
     </div>
     <div class="mb-3">
       <label for="senha" class="form-label">Senha</label>
@@ -98,6 +98,7 @@
      $(document).ready(function(){
       $('.cep').mask('00000-000');
       $('.telefone').mask('(00) 0000-0000');
+      $('.cpf').mask('000.000.000-00');
 
       $(".cep").blur(function(){
           var cep = $(this).val();
