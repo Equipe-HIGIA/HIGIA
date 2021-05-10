@@ -236,13 +236,6 @@ echo "ID: ". $_SESSION['usuario'];
   <p><?php echo $_SESSION['usuarioqualificacao']; ?></p>
   <h3>localatendimento</h3>
   <p><?php echo $_SESSION['usuariolocalatendimento']; ?></p>
-  <h3>paginas</h3>
-  <p><?php echo $_SESSION['usuariopaginas']; ?></p>
-  <h3>raio</h3>
-  <p><?php echo $_SESSION['usuarioraio']; ?></p>
-  <h3>idade</h3>
-  <p><?php echo $_SESSION['usuariodades']; ?></p>
-
   
    </div>
 </div>

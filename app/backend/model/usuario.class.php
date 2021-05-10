@@ -69,12 +69,12 @@ function valida() {
      $_SESSION['usuarionotificacao'] =  $reg2["clique"];
      $_SESSION['usuarioraio'] =  $reg2["raio"];
      $_SESSION['usuariodades'] =  $reg2["idades"];
-     $_SESSION['usuarioserviço'] =  $reg2["servico"];
+     $_SESSION['usuarioserviço'] =  $reg4["servico"];
      $_SESSION['usuariopaginas'] =  $reg2["paginas"];
-     $_SESSION['usuarioespecialidade'] =  $reg2["especialidade"];
-     $_SESSION['usuarioambiente'] =  $reg2["ambiente"];
-     $_SESSION['usuarioqualificacao'] =  $reg2["qualificacao"];
-     $_SESSION['usuariolocalatendimento'] =  $reg2["localatendimento"];
+     $_SESSION['usuarioespecialidade'] =  $reg4["especialidade"];
+     $_SESSION['usuarioambiente'] =  $reg4["ambiente"];
+     $_SESSION['usuarioqualificacao'] =  $reg4["qualificacao"];
+     $_SESSION['usuariolocalatendimento'] =  $reg4["localatendimento"];
      $_SESSION['usuarioidentificacao_anucio'] =  $reg4["identificacao_anucio"];
 
      $_SESSION['usuarioidentificacao_cliente'] =  $reg3["identificacao_cliente"];
