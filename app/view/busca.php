@@ -161,7 +161,7 @@ if (count($resultados)) {
 
   <label for="floatingTextarea">Fazer comentario</label>
         </div>
-        <input class="btn btn-primary" type="submit" name="Enviar" value="Submit">
+        <input class="btn btn-primary" type="submit" name="Enviar" value="Enviar comentario">
 
      </form>
 </div>
