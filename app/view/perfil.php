@@ -86,7 +86,7 @@ echo "ID: ". $_SESSION['usuario'];
   <input type="number" class="form-control" name="grupo" placeholder="Quantidade de Pessoas">
 </div>
 
-<input  id="pegaridop" type="hidden" name="identificacao_anucio" value="<?php    echo $_SESSION['usuarioidentificacao_anucio']; ?>">
+<input  id="pegaridop" type="hidden"  name="identificacao_anucio" value="<?php    echo $_SESSION['usuarioidentificacao_anucio']; ?>">
 
 
 <div class="mb-3">

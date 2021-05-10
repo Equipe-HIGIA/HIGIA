@@ -92,7 +92,7 @@ if (count($resultados)) {
 
 <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mx-auto mb-3"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
  contato
 </button>
 
@@ -222,10 +222,7 @@ $(function () {
 
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -257,10 +254,7 @@ $(function () {
       <p class="card-text fs-5">paginas:<?php echo $Resultado['paginas']; ?></p>
     
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
