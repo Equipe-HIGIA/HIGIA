@@ -88,7 +88,7 @@ if (count($resultados)) {
 <div class="card border-dark shadow-lg  mb-5  rounded" >
   <div class="card-header m-6"><?php echo $Resultado['qualificacao']; ?></div>
   <div class="card-body text-dark">
-    <h5 class="card-title">Descrição do serviço</h5>
+    <h5 class="card-title">Descrição do serviço - <?php echo $Resultado['id']; ?></h5>
     <p class="card-text fs-5"><?php echo $Resultado['servico']; ?></p>
   
     
