@@ -48,7 +48,7 @@
 <div class="container-fluid">
   
 <aside class="p-3 mb-1 ">
-<div class="d-flex flex-column align-items-stretch bg-white border-end p-1" style="width: 380px;">
+<div class="d-flex flex-column align-items-stretch bg-white border-end p-1 " style="width: 380px;">
     <h3>filtragem</h3>
 <form method="GET" action="busca_ava.php" id="form-pesquisa">
 

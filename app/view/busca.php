@@ -132,7 +132,7 @@ if (count($resultados)) {
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
+<button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
   Comentario
 </button>
 

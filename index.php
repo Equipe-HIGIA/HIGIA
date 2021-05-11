@@ -73,10 +73,8 @@
   <div class="carousel-inner">
   <div class="carousel-item active" data-bs-interval="10000" id="bgvid" >
      
-     <video  playsinline autoplay muted loop   >
-   <source src="video/Running - 3599.mp4" type="video/mp4">
-       </video>
-     
+  <img src="img/per.jpg" class="img-fluid" >
+
      </div>
      <div  class="carousel-item" data-bs-interval="10000" id="bgvi"> 
    
