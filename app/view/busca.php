@@ -5,16 +5,19 @@ session_start();
 require_once("../backend/db/connection.class.php");
 
 
-$servico = "%".trim($_GET['servico']."%");
-
+//$servico = "%".trim($_GET['servico']."%");
+$servico =  str_replace( array( ',', '.', '%', '-', '/', '\\' ),' ',  $_GET['servico']);
+$palavras = explode( ' ', $servico); // dividindo as palavras pelo espaço
+$palavras = array_filter($palavras); // eliminando ítens vazios
 
 $pdo = new Connection();
 
 //$st = $pdo->prepare('SELECT * FROM profissional  WHERE servico LIKE :servico ');
-$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE :servico ');
+//$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE :servico ');
+$st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE '%$servico%' ");
 
 
-$st->bindParam(':servico', $servico ,PDO::PARAM_STR);
+//$st->bindParam(':servico', $servico ,PDO::PARAM_STR);
 
 $st->execute();  
 

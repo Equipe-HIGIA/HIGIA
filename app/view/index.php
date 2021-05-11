@@ -45,29 +45,14 @@
 
 </form>
 
-
-<div class="d-flex me-2 m-2">
-<button class="btn btn-outline-success shadow-sm rounded btn-lg" type="submit" data-bs-toggle="modal" data-bs-target="#Modalfo" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title="pesquisa avançada"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-grip-vertical" viewBox="0 0 16 16">
-  <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg></button>
-</div>
-
+<div class="container-fluid">
+  
+<aside class="p-3 mb-1 ">
+<div class="d-flex flex-column align-items-stretch bg-white border-end p-1" style="width: 380px;">
+    <h3>filtragem</h3>
 <form method="GET" action="busca_ava.php" id="form-pesquisa">
-<div class="modal fade" id="Modalfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="">pesquisa avançada</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-     
 
-
-     
-
-
-     <div class="mb-3">
+<div class="mb-3">
   <label for="qualificacao" class="form-label">Qualificação</label>
   <input type="text" class="form-control" name="qualificacao" placeholder="Qual tipo de profissional você quer...." required>
 </div>
@@ -116,14 +101,13 @@
 
 
  <div class="me-2">
-<button class="btn btn-outline-success shadow-sm rounded btn-lg" type="submit">Search</button>
+<button class="btn btn-outline-success shadow-sm rounded btn-lg" type="submit">filtrar</button>
 </div>
 
 </form>
-      </div>
-     
-    </div>
-  </div>
+ </div>
+</aside>
+
 </div>
 
 <h1 class="fs-1 fw-bolder m-4  text-center position-absolute top-50 start-50 translate-middle">Pesquise Algo do seu interrese.</h1>
