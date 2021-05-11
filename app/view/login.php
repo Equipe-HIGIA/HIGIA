@@ -11,6 +11,9 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
 
 
 </head>
@@ -34,7 +37,7 @@
 <form action="../backend/controller/login.php"  method="POST">
   <div class="mb-3 ">
     <label for="exampleInputEmail1" class="form-label">CPF</label>
-    <input type="text" name="cpf" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="cpf" class="form-control cpf" id="exampleInputEmail1" aria-describedby="emailHelp">
   
   </div>
   <div class="mb-3">
@@ -75,5 +78,17 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']==0) {
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="js/jquery.mask.min.js"></script>
+  <script>
+     $(document).ready(function(){
+      $('.cpf').mask('000.000.000-00');
+
+    
+
+     })
+
+
+
+  </script>
 </body>
 </html>
