@@ -15,8 +15,8 @@
    
    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
   
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+ 
 
 </head>
 <body class="bg-white">
@@ -48,7 +48,7 @@
 <div class="container-fluid">
   
 <aside class="p-3 mb-1 ">
-<div class="d-flex flex-column align-items-stretch bg-white border-end p-1 " style="width: 380px;">
+<div class="d-flex flex-column align-items-stretch bg-white p-1 " style="width: 380px;">
     <h3 class="mb-3">filtragem</h3>
 <form method="GET" action="busca_ava.php" id="form-pesquisa">
 
@@ -110,16 +110,19 @@
 
 </div>
 
-<div class="">
-<h1 class="fs-1 fw-bolder m-4  text-center position-absolute top-50 start-50 translate-middle">Pesquise Algo do seu interrese.</h1>
-</div>
+
+    <h1 class="fs-1 fw-bolder m-4  text-center position-absolute top-50 start-50 translate-middle">Pesquise Algo do seu interrese</h1>
+   
+
+
 
 
  </main>
 
 <br><br>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
 <script sc="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 

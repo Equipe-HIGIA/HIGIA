@@ -11,9 +11,7 @@
 
     <link href="css/tl.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     
    <!--   -->
@@ -21,10 +19,9 @@
     <title>Hígia - Disposicao para a Saude</title>
 </head>
 <body class="bg-white">
- 
-      <!--  NavBar -->
+    <!--  NavBar -->
 
-  <nav class="navbar navbar-expand-lg  text-white bg-dark navbar-dark text-white  border-bottom shadow-sm mb-5 p-1" id="navbarToggleExternalContent">
+    <nav class="navbar navbar-expand-lg  text-white bg-dark navbar-dark text-white  border-bottom shadow-sm mb-5 p-1" id="navbarToggleExternalContent">
   <div class="container-fluid">
   
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,12 +103,17 @@
     <!-- Textos -->
 
 
-<h2 id="sobre" class="text-center">SOBRE</h2>
 
-<br><br>
+    <div class="d-flex">
+  <!-- Image -->
+  <img src="img/m.jpg" class=" img-fluid shadow mb-3 m-4" alt="Responsive image"  style=" height:550px; width:200%;" id="sda1">
 
-<div class="centralizar"><h4 class="text-center">
- O aplicativo Higia, surgiu para auxiliar a todas as pessoas que precisam de um profissional de Educacao Fisica,
+  <!-- Body -->
+  <div class="mb-2 m-1 p-1">
+    <h5 class="fw-bold">
+    SOBRE</h5>
+    <h3>
+    O aplicativo Higia, surgiu para auxiliar a todas as pessoas que precisam de um profissional de Educacao Fisica,
  que possa oferecer a assistência necessária, na busca por melhoria da saude.
  <br><br>Nos dias atuais, nota-se a dificuldade em encontrar tempo e disposição para cuidar da saúde.
  Diante disto, o sistema foi desenvolvido, visando encurtar a distância e intermediar o acesso entre profissional e cliente,
@@ -119,59 +121,76 @@
  <br><br>O Higia, ainda proporciona visibilidade aos profissionais que precisam de maior divulgação e ascensão do seu trabalho. 
  Pois, com este website, o portfólio do profissional estará disponível para milhares de potenciais clientes,
  através de filtros que buscam igualdade entre características básicas, pré-cadastrados por ambos usuários. 
-</h4>
+</h3>
+  </div>
 </div>
-<br><br><br><br>
+<!-- Media object -->
 
-<div class="centralizar"><img src="img/luis-vidal-FodEsaNZs48-unsplash.jpg" class="img-thumbnail img-fluid" alt="Responsive image"  style=" height:500; width:80%;" id="sda1"></div>
-
-  
 
 <br><br><br><br>
 
-<h2 class="text-center">Como funciona</h2>
-
-<br><br>
 
 
-  <div class="centralizar"><h4 class="text-center">
-  O Profissional de Educacao Fisica tera a oportunidade de utilizar o aplicativo, como uma alavanca para seu portfólio profissional.
+<div class="d-flex">
+  <!-- Image -->
+  <img src="img/luis-vidal-FodEsaNZs48-unsplash.jpg" class=" img-fluid shadow mb-3 m-4" alt="Responsive image"  style=" height:300px; width:200%;" id="sda1">
+
+  <!-- Body -->
+  <div class="mb-2 m-1 p-1">
+    <h5 class="fw-bold">
+    Como funciona</h5>
+    <h3>
+    O Profissional de Educacao Fisica tera a oportunidade de utilizar o aplicativo, como uma alavanca para seu portfólio profissional.
   Tendo a chance de mostrar seu trabalho e encontrar clientes que buscam por alguém com as características e formações especificas que este, tem a oferecer. 
   O aplicativo irá trabalhar o marketing deste profissional, apresentando-o a milhares de potenciais clientes.
   Do outro lado, o cliente que busca pelo profissional ideal, que possa atender efetivamente suas necessidades, bastando buscar em nosso catalogo,
   especificando as opcoes desejadas.
+</h3>
+  </div>
+</div>
+<!-- Media object -->
+
+
+<br><br><br><br>
+
+<br><br>
+
 
   </h4>
 </div>
  <br><br><br><br>
 
 
- <div class="centralizar"><img src="img/1saude_auto_x2.jpg" class="img-thumbnail img-fluid" alt="Responsive image" style=" height:500; width:80%;" id="sda"></div>
-
-  <br><br><br><br>
-
-  <h2 id="produtos" class="text-center">Produto oferecido</h2>
-
-  <div class="centralizar"><h4 class="text-center">
+ <div class="d-flex">
+  <!-- Image -->
+  
+  <img src="img/ivan-torres-SVITzHh1Cdg-unsplash.jpg" class=" img-fluid shadow mb-3 m-4" alt="Responsive image" style=" height:300px; width:150%;" id="sw">
+  <!-- Body -->
+  <div class="mb-2 m-1 p-1">
+    <h5 class="fw-bold">
+    Produto oferecido  
+  </h5>
+    <h3 >
     Oferecemos um sistema de cadastro e filtro de informações, visando comparar e apresentar dados úteis.
     Onde, se encontra o Profissional, que busca aumentar a visibilidade de seu portfólio profissional
     e novas oportunidades de trabalho e o Cliente que busca por melhoria da saúde. Nosso sistema, tem como base,
     facilitar o contato entre nossos usuários. 
-  </h4>
+  </h3>
   </div>
+</div>
+<!-- Media object -->
+
   <br><br><br><br>
 
-  <div class="centralizar"><img src="img/ivan-torres-SVITzHh1Cdg-unsplash.jpg" class="img-thumbnail img-fluid" alt="Responsive image" style=" height:500; width:80%;" id="sw"></div>
+  <br><br><br><br>
 
 
   <br><br><br><br>
 
-  <h2 class="text-center">Promoções</h2>
+  
 
-  <div class="centralizar"><h4 class="text-center">
-   Promoções especiais para Profissionais. E futuros eventos que poderão te ajudar a alavancar seu portfólio, dando a ele, maior visibilidade.
-  </h4> 
-  </div>
+  
+
 
        <br><br><br><br>
        <div class="centralizar"><img src="img/logoextendida.png" class="img-fluid" alt="Responsive image"></div>
@@ -181,8 +200,10 @@
         <h2 alt="Responsive image">Participe dessa experiência.</h2>
       </div>
       <div id="divbtn">
-        <a id="btncadastro" class="nav-item nav-link btn rounded-pill btn-outline-warning " href="app/view/usuario.php" role="button">Cadastre-se já</a>
+        <a id="btncadastro" class="nav-item nav-link  text-dark btn rounded-pill btn-outline-warning " href="app/view/usuario.php" role="button">Cadastre-se já</a>
       </div>
+
+
 
     <!-- Final -->
 
@@ -194,9 +215,9 @@
     
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <script sc="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+<script sc="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/index.js"></script>
   
 
