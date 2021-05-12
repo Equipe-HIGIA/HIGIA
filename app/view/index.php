@@ -40,7 +40,7 @@
   <input type="text" class="form-control shadow-sm rounded me-2" name="servico" placeholder="pesquisar....">
 
 <div class="me-2">
-<button class="btn btn-outline-success shadow-sm rounded btn-lg" type="submit">Search</button>
+<button class="btn btn-outline-warning shadow-sm btn-lg rounded-pill border border-2"  type="submit">Search</button>
 </div>
 
 </form>
@@ -49,17 +49,17 @@
   
 <aside class="p-3 mb-1 ">
 <div class="d-flex flex-column align-items-stretch bg-white border-end p-1 " style="width: 380px;">
-    <h3>filtragem</h3>
+    <h3 class="mb-3">filtragem</h3>
 <form method="GET" action="busca_ava.php" id="form-pesquisa">
 
-<div class="mb-3">
+<div class="mb-4 m-2">
   <label for="qualificacao" class="form-label">Qualificação</label>
   <input type="text" class="form-control" name="qualificacao" placeholder="Qual tipo de profissional você quer...." required>
 </div>
 
  
 
-<div class="mb-3">
+<div class="mb-4 m-2">
 <label for="ambiente" class="form-label">Ambiente</label>
 <select class="form-select" name="ambiente" aria-label="Default select example" required>
 
@@ -73,7 +73,7 @@
  </div>
 
  
- <div class="mb-3">
+ <div class="mb-4 m-2">
 <label for="localatendimento" class="form-label">Local de Atendimento</label>
 <select class="form-select" name="localatendimento" aria-label="Default select example" required>
 
@@ -87,7 +87,7 @@
  </div>
 
 
- <div class="mb-3">
+ <div class="mb-4 m-2">
 <label for="especial" class="form-label">Atende Pessoas com Dificiencia</label>
 <select class="form-select" name="especial" aria-label="Default select example" required>
 
@@ -101,7 +101,7 @@
 
 
  <div class="me-2">
-<button class="btn btn-outline-success shadow-sm rounded btn-lg" type="submit">filtrar</button>
+<button class="btn btn-outline-warning shadow-sm  btn-lg rounded-pill border border-2" type="submit">filtrar</button>
 </div>
 
 </form>
@@ -110,8 +110,9 @@
 
 </div>
 
+<div class="">
 <h1 class="fs-1 fw-bolder m-4  text-center position-absolute top-50 start-50 translate-middle">Pesquise Algo do seu interrese.</h1>
-
+</div>
 
 
  </main>
