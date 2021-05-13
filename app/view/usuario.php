@@ -27,7 +27,7 @@
     
   <div class="container-md">
    
-     <form  method="POST" action="../backend/controller/usuario.php" class="row g-3">
+     <form  method="POST" action="../backend/controller/usuario.php" class="row g-3" enctype="multipart/form-data">
      <input type="hidden" name="op" value="inc">
     <div class="container text-center">
        <h5 class="fs-3">Cadastro de Usuário</h5>
@@ -84,6 +84,7 @@
          <option value="O">Outros</option>
       </select>
     </div>
+
 
         <center><button class="btn btn-primary botao-volta" onclick="window.history.back()">Voltar</button><button type="clear" class="btn btn-secondary">Limpar</button><button type="submit" class="btn btn-success">Confirmar</button></center>
       </form>

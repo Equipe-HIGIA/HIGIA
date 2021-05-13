@@ -124,7 +124,7 @@ require_once("../backend/db/connection.class.php");
 <div class="collapse" id="collapse2">
 <div class="card card-body border-dark">
 
-<form method="POST"  action="../backend/controller/dados_servico.php" id="form2">
+<form method="POST"  action="../backend/controller/dados_servico.php" id="form2" enctype="multipart/form-data">
 <div class="mb-3">
   <label for="grupo" class="form-label">Quantas pessoas voce pode atender</label>
   <input type="number" class="form-control" name="grupo" placeholder="Quantidade de Pessoas">
@@ -236,6 +236,9 @@ require_once("../backend/db/connection.class.php");
 </select>
  </div>
 
+ <div class="mb-3">
+    <input type="file" class="form-control" aria-label="file example" name="imagem[]" required>
+     </div>
 
  <div class="col-12">
     <button type="submit" name="enviar2" class="btn btn-primary">Cadastrar</button>

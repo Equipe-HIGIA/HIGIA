@@ -81,7 +81,7 @@ if (count($resultados)) {
 
 <div class="container">
   <div class="row justify-content-center">
-<div class="card border-dark shadow-lg  mb-5  rounded" >
+<div class="card  shadow-lg border border-3  mb-5  rounded" >
   <div class="card-header m-6"><?php echo $Resultado['qualificacao']; ?></div>
   <div class="card-body text-dark">
     <h5 class="card-title">Descrição do serviço - <?php echo $Resultado['id']; ?></h5>
@@ -95,14 +95,14 @@ if (count($resultados)) {
 
 <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-outline-warning  border border-2"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
  contato
 </button>
 
 
 <?php }else{?>
   <form name="contactform" method="POST" action="../backend/controller/dados_anucio.php">
-<button type="button" class="btn btn-primary mx-auto mb-3"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-outline-warning mx-auto mb-3  border border-2"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
   Contato
 </button>
 <input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>"/>
@@ -132,7 +132,7 @@ if (count($resultados)) {
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
+<button type="button" class="btn btn-outline-warning  border border-2 mb-3 " data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
   Comentario
 </button>
 

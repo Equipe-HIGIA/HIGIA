@@ -19,7 +19,7 @@ if (isset($_POST['op']) && $_POST['op']=="inc") {
     $usuario->email =  $_POST['email']; 
     $usuario->genero =  $_POST['genero'];
     $usuario->nome =  $_POST['nome']; 
-    $usuario->incluir();
+      $usuario->incluir();
     if ($usuario->id>0) {
         unset($_SESSION["usuario"]);
         echo "<script language='javascript' type='text/javascript'>
