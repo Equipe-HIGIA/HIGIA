@@ -14,7 +14,7 @@ $pdo = new Connection();
 
 //$st = $pdo->prepare('SELECT * FROM profissional  WHERE servico LIKE :servico ');
 //$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE :servico ');
-$st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE '%$servico%' ");
+$st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  left join imagem im on(p.identificacao_anucio = im.identificacao_imagem) WHERE servico LIKE '%$servico%' ");
 
 
 //$st->bindParam(':servico', $servico ,PDO::PARAM_STR);
@@ -72,6 +72,17 @@ $resultados = $st->fetchAll(PDO::FETCH_ASSOC);
 
 <h1 class="fs-1 m-4 text-center">Resultado da busca</h1>
 
+<div class="container">
+<nav aria-label="Page navigation example mb-4 m-1 p-1">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+</div>
 <?php
 if (count($resultados)) {
 	foreach($resultados as $Resultado) {
@@ -81,32 +92,68 @@ if (count($resultados)) {
 
 <div class="container">
   <div class="row justify-content-center">
-<div class="card  shadow-lg border border-3  mb-5  rounded" >
-  <div class="card-header m-6"><?php echo $Resultado['qualificacao']; ?></div>
-  <div class="card-body text-dark">
+<div class="card  shadow-sm border border-3  mb-5  rounded" style=" width: 119rem;">
+  <div class="card-header m-6 mb-2 bg-transparent border-0 fs-4"><?php echo $Resultado['qualificacao']; ?></div>
+  <div class="d-flex">
+  <div id="carouselExampleControls<?php echo $Resultado['id']; ?>" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner mb-3  shadow">
+    <div class="carousel-item active mb-2 border border-3 shadow" data-bs-interval="10000">
+      <img src="../backend/controller/<?php echo $Resultado['imagens']; ?>" class="d-block w-100 img-fluid" alt="...."  >
+    </div>
+    <div class="carousel-item mb-2 border border-3 shadow" data-bs-interval="10000">
+    <img src="../backend/controller/<?php echo $Resultado['imagens_2']; ?>" class="d-block w-100 img-fluid" alt="..." >
+     </div>
+    <div class="carousel-item mb-2 border border-3 shadow" data-bs-interval="10000">
+    <img src="../backend/controller/<?php echo $Resultado['imagens_3']; ?>" class="d-block w-100 img-fluid" alt="..." >
+     </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls<?php echo $Resultado['id']; ?>" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls<?php echo $Resultado['id']; ?>" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  <div class="card-body text-dark mb-4 p-2">
     <h5 class="card-title">Descrição do serviço - <?php echo $Resultado['id']; ?></h5>
     <p class="card-text fs-5"><?php echo $Resultado['servico']; ?></p>
-  
-    
- 
+
 <div class="d-flex">
-
- 
-
-<?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
+    <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-warning  border border-2"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-outline-warning  border border-2 shadow-sm"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
  contato
 </button>
 
 
 <?php }else{?>
   <form name="contactform" method="POST" action="../backend/controller/dados_anucio.php">
-<button type="button" class="btn btn-outline-warning mx-auto mb-3  border border-2"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-outline-warning mx-auto mb-3 shadow-sm border border-2"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
   Contato
 </button>
 <input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>"/>
 </form>  <?php }?>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-warning shadow-sm  border border-2 mb-3 " data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
+  Comentario
+</button>
+</div>
+
+
+<div class="d-flex flex-row-reverse position-absolute bottom-0 end-0 mb-2 p-2 m-1" >
+    <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['ambiente']; ?></span></h6>
+  <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['localatendimento']; ?></span></h6>
+  <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['especial']; ?></span></h6>
+  </div>
+
+    </div>
+
+ 
 
 
 
@@ -131,12 +178,6 @@ if (count($resultados)) {
   </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-warning  border border-2 mb-3 " data-bs-toggle="modal" data-bs-target="#com<?php echo $Resultado['id']; ?>" style="width: 200px;">
-  Comentario
-</button>
-
-</div>
 
 
 <!-- Modal -->
@@ -276,13 +317,6 @@ $(function () {
   
 
 
-  <div class="card-footer bg-transparent border-dark">
-    <div class="d-flex " >
-    <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['ambiente']; ?></span></h6>
-  <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['localatendimento']; ?></span></h6>
-  <h6><span class="badge rounded-pill bg-secondary"><?php echo $Resultado['especial']; ?></span></h6>
-  </div>
-  </div>
 
 
 

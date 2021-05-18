@@ -41,7 +41,7 @@ $pdo = new Connection();
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item">
-        <button class="btn btn-primary m-3 nav-link active" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary"><?php
+        <button class="btn btn-primary m-3 nav-link active position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary position-absolute top-0 start-100 translate-middle rounded-pill"><?php
        echo $_SESSION['usuarionotificacao'];
           ?></span></button>
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Atualizar Anuncio</button>
@@ -211,7 +211,7 @@ echo "ID: ". $_SESSION['usuario'];
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações<span class="badge bg-secondary"><?php
+  <button class="btn btn-primary position-relative mb-2 p-2 m-3" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações<span class="badge bg-secondary position-absolute top-0 start-100 translate-middle rounded-pill"><?php
        echo $_SESSION['usuarionotificacao'];
           ?></span></button>
           

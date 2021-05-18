@@ -61,6 +61,15 @@ clique int
 
  );
 
+create table imagem(
+id int primary key auto_increment,
+imagens varchar(255),
+imagens_2 varchar(255),
+imagens_3 varchar(255),
+identificacao_imagem int
+);
+
+
 alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id_cliente);
 
 alter table cliente_profissional add constraint fk_cliente_profissional_profissional foreign key (profissional_id) references profissional(id_profissional);

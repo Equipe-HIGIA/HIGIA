@@ -55,7 +55,7 @@ require_once("../backend/db/connection.class.php");
 <p class=" d-flex justify-content-center  align-items-center">
 
 <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
-<button class="btn btn-outline-warning shadow-sm m-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-outline-warning shadow-sm m-4 border border-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Cadastro para Cliente 
 </button>
 <?php }else{echo"<div class='container-fluid  d-flex justify-content-center'><div class='alert alert-danger d-inline-flex  align-items-center p-2 ' role='alert'>
@@ -115,7 +115,7 @@ require_once("../backend/db/connection.class.php");
 <p class=" d-flex justify-content-center  align-items-center">
 
 <?php if( $_SESSION['usuarioidentificacao_anucio'] == 0){ ?>
-<button class="btn btn-outline-warning shadow-sm m-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-outline-warning shadow-sm m-4 border border-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
   Cadastro para Profissional
 </button>
 <?php }else{echo"<div class='container-fluid  d-flex justify-content-center'><div class='alert alert-danger d-inline-flex  align-items-center p-2 ' role='alert'> você ja fez o cadastro do serviço!</div></div>";} ?>
@@ -150,7 +150,7 @@ require_once("../backend/db/connection.class.php");
 
 <div class="mb-3">
     <label for="servico" class="form-label">Descrição de seus serviços</label>
-    <textarea class="form-control is-invalid" name="servico" placeholder="Descreva brevemente, os seus serviços." required></textarea>
+    <textarea class="form-control is-invalid" pattern=".{196}"  name="servico" maxlength="337" placeholder="Descreva brevemente, os seus serviços." required required title="198 characters minimum"></textarea>
     <div class="invalid-feedback">
       Descreva brevemente, os seus serviços.
     </div>
@@ -237,7 +237,18 @@ require_once("../backend/db/connection.class.php");
  </div>
 
  <div class="mb-3">
-    <input type="file" class="form-control" aria-label="file example" name="imagem[]" required>
+ <label for="imagem" class="form-label">Imagem para Anuncio - 1</label>
+    <input type="file" class="form-control" aria-label="file example" name="imagem" required>
+     </div>
+
+     <div class="mb-3">
+ <label for="imagem_2" class="form-label">Imagem para Anuncio - 2</label>
+    <input type="file" class="form-control" aria-label="file example" name="imagem_2" required>
+     </div>
+
+     <div class="mb-3">
+ <label for="imagem_3" class="form-label">Imagem para Anuncio - 3</label>
+    <input type="file" class="form-control" aria-label="file example" name="imagem_3" required>
      </div>
 
  <div class="col-12">
