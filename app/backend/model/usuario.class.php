@@ -27,7 +27,7 @@ function valida() {
      $st->bindParam(':senha',$this->senha,PDO::PARAM_STR);
     $st->execute();
    
-    $sql2 = "SELECT * FROM usuario u left join notificacao n  on (u.id = n.identificacao_notifcacao) left join cliente_profissional cp on(u.id = cp.id) left join profissional  p on( cp.identificacao = p.id )   where cpf like :cpf and  senha = :senha ";
+    $sql2 = "SELECT * FROM usuario u left join notificacao n  on (u.id = n.identificacao_notifcacao) left join cliente_profissional cp on(u.id = cp.id) left join profissional  p on( cp.identificacao = p.id )  left join imagem_perfil im_p on(u.id = im_p.identificacao_perfil)  where cpf like :cpf and  senha = :senha ";
   
     $pdo = new Connection();
       $stm = $pdo->prepare($sql2);
@@ -66,7 +66,11 @@ function valida() {
       $_SESSION['usuariocidade'] =  $reg["cidade"];
       $_SESSION['usuarioendereco'] =  $reg["endereco"];
     
+     
      $_SESSION['usuarionotificacao'] =  $reg2["identificacao_notifcacao"];
+     $_SESSION['usuarioimagens'] =  $reg2["imagens"];
+     $_SESSION['usuarioidentificacao_perfil'] =  $reg2["identificacao_perfil"];
+   
      $_SESSION['usuarioraio'] =  $reg2["raio"];
      $_SESSION['usuariodades'] =  $reg2["idades"];
      $_SESSION['usuarioserviço'] =  $reg4["servico"];

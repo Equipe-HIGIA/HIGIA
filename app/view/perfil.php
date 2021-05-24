@@ -40,10 +40,14 @@ $pdo = new Connection();
 
     <div class="position-relative">
     <div class="position-absolute top-0 start-0 rounded-circle">
+    <?php if( $_SESSION['usuarioidentificacao_perfil'] == 0){ ?>
+
     <img src="../backend/controller/imagemPerfil/índice.jpg" class="rounded-circle" style=" height: 150px;">
+    <?php }else{?><img src='../backend/controller/<?php echo $_SESSION['usuarioimagens'];?>' class='d-block w-100 img-fluid  border  border-3 rounded' alt='...'  style=" height: 190px;    ">
+      <?php   } ?>
 
     
-<button type="button" class="btn btn-outline-warning btn-lg position-absolute top-100 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#perfil">Dark</button>
+<button type="button" class="btn btn-warning btn-lg  shadow position-absolute top-100 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#perfil">Mudar de imagem</button>
  
 
 <!-- Modal -->
