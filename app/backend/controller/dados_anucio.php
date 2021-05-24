@@ -8,8 +8,10 @@ require_once("../db/connection.class.php");
 
 //$clique = 0;
  $id = $_POST['meu_id'];
- 
-    $stmt = $pdo->prepare("UPDATE profissional SET clique := clique + 1 WHERE id =$id");
+ $notificacao = "uma pessoa viu o seu contato";
+    $stmt = $pdo->prepare("INSERT INTO notificacao(notificacao,identificacao_notifcacao) VALUES(:notificacao, :identificacao_notifcacao)");
+    $stmt->bindParam(':notificacao',$notificacao);
+    $stmt->bindParam(':identificacao_notifcacao',$id);
     
     
     $stmt->execute();

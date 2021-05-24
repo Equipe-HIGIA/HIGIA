@@ -37,12 +37,12 @@ $src=$ds->Redimensionar($arquivo,   820, "./imagemProfissional");
 $src2=$ds->Redimensionar($arquivo2, 820, "./imagemProfissional");
 $src3=$ds->Redimensionar($arquivo3, 820, "./imagemProfissional");
 
-$cadastra = $con->prepare("INSERT INTO imagem (imagens, imagens_2,imagens_3, identificacao_imagem) VALUES (:imagens, :imagens_2, :imagens_3, :identificacao_imagem) ");
+$cadastra = $con->prepare("INSERT INTO  imagem  (imagens, imagens_2,imagens_3, identificacao_imagem) VALUES (:imagens, :imagens_2, :imagens_3, :identificacao_imagem) ");
 $cadastra->bindParam(':imagens',$src);
 $cadastra->bindParam(':imagens_2',$src2);
 $cadastra->bindParam(':imagens_3',$src3);
 $cadastra->bindParam(':identificacao_imagem',$idima);
-       
+      
 $cadastra->execute();
 
 
@@ -57,6 +57,7 @@ window.location.href='../../view/login.php';
 
 
 }
+
 
 
 ?>

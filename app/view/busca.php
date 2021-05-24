@@ -12,14 +12,20 @@ $palavras = array_filter($palavras); // eliminando ítens vazios
 
 $pdo = new Connection();
 
+$limit = isset($_POST['limit-records']) ? $_POST['limit-records'] : 5;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $limit;
 //$st = $pdo->prepare('SELECT * FROM profissional  WHERE servico LIKE :servico ');
 //$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE :servico ');
-$st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  left join imagem im on(p.identificacao_anucio = im.identificacao_imagem) WHERE servico LIKE '%$servico%' ");
-
+ $st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  left join imagem im on(p.identificacao_anucio = im.identificacao_imagem) WHERE servico LIKE '%$servico%' LIMIT $start, $limit");
 
 //$st->bindParam(':servico', $servico ,PDO::PARAM_STR);
 
 $st->execute();  
+
+
+
+
 
 
 $resultados = $st->fetchAll(PDO::FETCH_ASSOC);
@@ -72,17 +78,7 @@ $resultados = $st->fetchAll(PDO::FETCH_ASSOC);
 
 <h1 class="fs-1 m-4 text-center">Resultado da busca</h1>
 
-<div class="container">
-<nav aria-label="Page navigation example mb-4 m-1 p-1">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-</div>
+
 <?php
 if (count($resultados)) {
 	foreach($resultados as $Resultado) {
@@ -134,7 +130,7 @@ if (count($resultados)) {
 <button type="button" class="btn btn-outline-warning mx-auto mb-3 shadow-sm border border-2"  name="enviar<?php echo $Resultado['identificacao_anucio']; ?>" id="enviar<?php echo $Resultado['id']; ?>"  data-bs-toggle="modal" data-bs-target="#e<?php echo $Resultado['id']; ?>">
   Contato
 </button>
-<input type="hidden"  name="meu_id" value="<?php echo $Resultado['id']; ?>"/>
+<input type="hidden"  name="meu_id" value="<?php echo $Resultado['identificacao_anucio']; ?>"/>
 </form>  <?php }?>
 
 
@@ -201,7 +197,7 @@ if (count($resultados)) {
          <div class="form-floating mb-4">
   <textarea class="form-control" name="comentario" id="floatingTextarea"></textarea>
   <input type="hidden" name="moderador" value="não" />
-<input type="hidden" id="pegaridopost" name="identificacao" value="<?php    echo $Resultado['id']; ?>">
+<input type="hidden" id="pegaridopost" name="identificacao" value="<?php    echo $Resultado['identificacao_anucio']; ?>">
 
   <label for="floatingTextarea">Fazer comentario</label>
         </div>
@@ -350,7 +346,10 @@ $("#rateYo<?php echo $Resultado['id']; ?>").rateYo("option", "fullStar", "#B0B0B
 </script>
 
 
+
+
   <script>
+
 $("#enviar<?php echo $Resultado['id']; ?>").click(function(){
        
 $.ajax({
@@ -389,7 +388,14 @@ $.ajax({
 
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+$("#limit-records").change(function(){
+  $('form').submit();
+})
 
+})
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 

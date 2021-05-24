@@ -57,7 +57,8 @@ identificacao int
 
  create table notificacao(
 id int primary key auto_increment,
-clique int
+notificacao varchar(255),
+identificacao_notifcacao int
 
  );
 
@@ -69,6 +70,11 @@ imagens_3 varchar(255),
 identificacao_imagem int
 );
 
+create table imagem_perfil(
+id int primary key auto_increment,
+imagens varchar(255),
+identificacao_perfil int
+);
 
 alter table cliente_profissional add constraint fk_cliente_profissional_cliente foreign key (cliente_id) references cliente(id_cliente);
 

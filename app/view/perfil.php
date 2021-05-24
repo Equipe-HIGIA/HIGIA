@@ -19,6 +19,7 @@ $pdo = new Connection();
    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
   
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> 
+   <link href="css/jquery-filestyle.min.js">
 
 
 </head>
@@ -37,13 +38,68 @@ $pdo = new Connection();
 
         <div class="container-md">
 
+    <div class="position-relative">
+    <div class="position-absolute top-0 start-0 rounded-circle">
+    <img src="../backend/controller/imagemPerfil/índice.jpg" class="rounded-circle" style=" height: 150px;">
+
+    
+<button type="button" class="btn btn-outline-warning btn-lg position-absolute top-100 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#perfil">Dark</button>
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="perfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="../backend/controller/fotoPerfil.php" method="post" enctype="multipart/form-data"> 
+      <div class="modal-body">
+     
+ <div class="mb-3">
+ <label for="imagem" class="form-label">Imagem para Perfil</label>
+    <input type="file" class="form-control" aria-label="file example" name="imagem" required>
+     </div>
+
+     <input  id="pegaridop" type="hidden" name="identificacao_perfil" value="<?php    echo $_SESSION['usuario']; ?>">
+
+
+
+      </div>
+      <div class="modal-footer">
+         <button type="submit" class="btn btn-primary">Savar mudança</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+     </div>
+
+    </div>
+
+
         <div class="card text-center rounded-3 border-warning shadow-lg mb-3 position-absolute top-50 start-50 translate-middle"style="max-width: 18rem;">
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item">
-        <button class="btn btn-primary m-3 nav-link active position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary position-absolute top-0 start-100 translate-middle rounded-pill"><?php
-       echo $_SESSION['usuarionotificacao'];
-          ?></span></button>
+      
+<?php if( $_SESSION['usuarionotificacao'] == 0){ ?>
+        <button class="btn btn-primary m-3 nav-link active position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sistema<span class="badge bg-secondary position-absolute top-0 start-100 translate-middle border border-light  rounded-circle p-2">
+        
+        <span class='visually-hidden'>unread messages</span>
+  
+          </span></button>
+ <?php }else{echo" <button class='btn btn-primary m-3 nav-link active position-relative' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'>Sistema
+<span class='badge bg-danger position-absolute top-0 start-100 translate-middle border border-light  rounded-circle p-2'>
+<span class='visually-hidden'>unread messages</span></span>  
+</button>"
+        
+       ;} ?>
+
+
+
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Atualizar Anuncio</button>
 
 
@@ -194,7 +250,7 @@ echo "ID: ". $_SESSION['usuario'];
 
 
  <div class="col-12">
-    <button type="submit" name="enviar2" class="btn btn-primary">atualizar</button>
+    <button type="submit" name="enviar_atualizar" class="btn btn-primary">atualizar</button>
   </div>
   </form></div>
 </div>
@@ -211,10 +267,24 @@ echo "ID: ". $_SESSION['usuario'];
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-  <button class="btn btn-primary position-relative mb-2 p-2 m-3" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações<span class="badge bg-secondary position-absolute top-0 start-100 translate-middle rounded-pill"><?php
-       echo $_SESSION['usuarionotificacao'];
-          ?></span></button>
+  
+<?php if( $_SESSION['usuarionotificacao'] == 0){ ?>
+  <button class="btn btn-primary position-relative mb-2 p-2 m-3" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações
+
+  <span class="badge bg-secondary position-absolute top-0 start-100 translate-middle  border border-light  rounded-circle p-2">
+  <span class='visually-hidden'>unread messages</span></span>  
+       </span>
           
+       </button>   
+          <?php }else{echo"<button class='btn btn-primary position-relative mb-2 p-2 m-3' type='button' data-bs-toggle='collapse' data-bs-target='#multiCollapseExample2' aria-expanded='false' aria-controls='multiCollapseExample2'>notificações
+
+<span class='badge bg-danger position-absolute top-0 start-100 translate-middle border border-light  rounded-circle p-2'>
+<span class='visually-hidden'>unread messages</span></span>  
+</button>"
+        
+       ;} ?>
+
+
 <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Administrar comentarios
   </button>
@@ -242,11 +312,42 @@ echo "ID: ". $_SESSION['usuario'];
 
   <div class="row">
   <div class="col">
-    <div class="collapse multi-collapse" id="multiCollapseExample2">
-      <div class="card card-body">
-      pessoas que viram o seu contato:<?php
-       echo $_SESSION['usuarionotificacao'];
+    <div class="collapse multi-collapse border-0" id="multiCollapseExample2">
+      <div class="card card-body border-0">
+     <?php
+      $idnotificacao =  $_SESSION['usuarionotificacao'];
+
+     $notificacao = "SELECT id, notificacao FROM notificacao where identificacao_notifcacao =  '$idnotificacao' ";
+     $notificacao = $pdo->query($notificacao);
           ?>
+
+<?php
+if($notificacao->rowCount() >= 1){
+  foreach($notificacao->fetchAll() as $contato):
+    
+    ?>
+
+<div class="shadow mb-4 border border-2" data-bs-spy="scroll">
+
+
+<div class="d-flex">
+<p class="m-2 text-center rounded"><strong class="text-center" ><?php echo $contato['notificacao']; ?></strong></p> <br>
+<hr>
+<span class="badge bg-secondary m-2"><a  class="nav-link text-white" href='../backend/controller/exculirnotificacao.php?id=<?php echo $contato['id']; ?>'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg></a></span>
+</div> 
+
+
+</div>
+    
+<?php
+  endforeach;
+} else {
+  echo "Ainda ninguem viu seu contato";
+}
+?>
+
       </div>
     </div>
   </div>
@@ -265,11 +366,11 @@ echo "ID: ". $_SESSION['usuario'];
 
 
 
-<div class="collapse" id="collapseExample">
+<div class="collapse border-0" id="collapseExample">
   <div class="card card-body">
  
   <?php
-$idusuario = $_SESSION['usuario'];
+$idusuario = $_SESSION['usuarioidentificacao_anucio'];
 $sql = "SELECT id, nota, comentario, data FROM cliente_profissional where moderador = 'não' AND identificacao =  '$idusuario' ORDER BY data DESC";
 $sql = $pdo->query($sql);
 ?>
@@ -318,6 +419,7 @@ if($sql->rowCount() >= 1){
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+<script src="js/jquery-filestyle.min.js"></script>
 
 </body>
 
