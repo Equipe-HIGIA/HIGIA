@@ -36,20 +36,25 @@ $pdo = new Connection();
 
     <main>
 
+
         <div class="container-md">
 
+       
+    <button type="button" class="btn btn-outline-warning btn-lg  shadow p-1 m-1" data-bs-toggle="modal" data-bs-target="#perfil">Mudar de imagem</button>
+ 
+        <div class="container">
     <div class="position-relative">
     <div class="position-absolute top-0 start-0 rounded-circle">
     <?php if( $_SESSION['usuarioidentificacao_perfil'] == 0){ ?>
 
-    <img src="../backend/controller/imagemPerfil/índice.jpg" class="rounded-circle" style=" height: 150px;">
-    <?php }else{?><img src='../backend/controller/<?php echo $_SESSION['usuarioimagens'];?>' class='d-block w-100 img-fluid  border  border-3 rounded' alt='...'  style=" height: 190px;    ">
+    <img src="../backend/controller/imagemPerfil/índice.jpg" class="d-block w-100 img-fluid  border  border-3 rounded  shadow" style=" height: 190px;">
+    <?php }else{?><img src='../backend/controller/<?php echo $_SESSION['usuarioimagens'];?>' class='d-block w-100 img-fluid  border  border-3 rounded  shadow' alt='...'  style=" height: 190px;    ">
       <?php   } ?>
 
     
-<button type="button" class="btn btn-warning btn-lg  shadow position-absolute top-100 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#perfil">Mudar de imagem</button>
- 
 
+      <h5 class="card-title fs-2 m-2"><?php  echo $_SESSION["usuarionome"]; ?></h5>
+   
 <!-- Modal -->
 <div class="modal fade" id="perfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -82,11 +87,13 @@ $pdo = new Connection();
      </div>
 
     </div>
+    
+</div>
 
 
-        <div class="card text-center rounded-3 border-warning shadow-lg mb-3 position-absolute top-50 start-50 translate-middle"style="max-width: 18rem;">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
+        <div class="card text-center rounded-3 border border-2  shadow-lg mb-3 position-absolute top-50 start-50 translate-middle"style="max-width: 18rem;">
+  <div class="card-header border-0">
+    <ul class="nav nav-pills card-header-pills border-0">
       <li class="nav-item">
       
 <?php if( $_SESSION['usuarionotificacao'] == 0){ ?>
@@ -113,8 +120,7 @@ $pdo = new Connection();
     </ul>
   </div>
   <div class="card-body">
-  <h5 class="card-title"><?php  echo"Nome: ". $_SESSION["usuarionome"]; ?></h5>
-                            <p class="card-text">
+                           <p class="card-text">
 
                                 <br><?php
    echo "CEP: ". $_SESSION["usuariocep"];
@@ -273,7 +279,7 @@ echo "ID: ". $_SESSION['usuario'];
   <div class="offcanvas-body">
   
 <?php if( $_SESSION['usuarionotificacao'] == 0){ ?>
-  <button class="btn btn-primary position-relative mb-2 p-2 m-3" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações
+  <button class="btn btn-primary  position-relative mb-2 p-2 m-3" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">notificações
 
   <span class="badge bg-secondary position-absolute top-0 start-100 translate-middle  border border-light  rounded-circle p-2">
   <span class='visually-hidden'>unread messages</span></span>  
