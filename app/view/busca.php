@@ -7,17 +7,12 @@ require_once("../backend/db/connection.class.php");
 
 //$servico = "%".trim($_GET['servico']."%");
 $servico =  str_replace( array( ',', '.', '%', '-', '/', '\\' ),' ',  $_GET['servico']);
-$palavras = explode( ' ', $servico); // dividindo as palavras pelo espaço
-$palavras = array_filter($palavras); // eliminando ítens vazios
 
 $pdo = new Connection();
 
-$limit = isset($_POST['limit-records']) ? $_POST['limit-records'] : 5;
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-$start = ($page - 1) * $limit;
 //$st = $pdo->prepare('SELECT * FROM profissional  WHERE servico LIKE :servico ');
 //$st = $pdo->prepare('SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  WHERE servico LIKE :servico ');
- $st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id)  left join imagem im on(p.identificacao_anucio = im.identificacao_imagem) WHERE servico LIKE '%$servico%' LIMIT $start, $limit");
+ $st = $pdo->prepare("SELECT * FROM usuario u  left join profissional  p on(  p.identificacao_anucio = u.id) left join imagem im on(p.identificacao_anucio = im.identificacao_imagem)  WHERE servico LIKE '%$servico%'");
 
 //$st->bindParam(':servico', $servico ,PDO::PARAM_STR);
 
@@ -120,7 +115,7 @@ if (count($resultados)) {
 <div class="d-flex">
     <?php if($_SESSION['usuarioidentificacao_cliente'] == 0){ ?>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-warning  border border-2 shadow-sm"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
+<button type="button" class="btn btn-outline-warning  mb-3  border border-2 shadow-sm"  data-bs-toggle="modal" data-bs-target="#contatobloquedado<?php echo $Resultado['id']; ?>">
  contato
 </button>
 
@@ -184,9 +179,16 @@ if (count($resultados)) {
         <div class="modal-title" id="exampleModalLabel">
     Comentarios
 
+   <?php  $bloquear =  $Resultado['identificacao_anucio']; $bloquear2 = $_SESSION['usuarioidentificacao_anucio']; ?>
  
+    
+    
 
-     <form action="../backend/controller/comentario.php" method="POST"  enctype="multipart/form-data">
+     
+<?php if( $bloquear !== $bloquear2){ ?>
+
+
+      <form action="../backend/controller/comentario.php" method="POST"  enctype="multipart/form-data">
 
   
 <div id="rateYo<?php echo $Resultado['id']; ?>" class="mb-3"></div>
@@ -204,6 +206,13 @@ if (count($resultados)) {
         <input class="btn btn-primary" type="submit" name="Enviar" value="Enviar comentario">
 
      </form>
+     <?php }else{?><div class="alert alert-warning d-flex align-items-center" role="alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg><div>
+   para ver atualização de anuncio precisa cadastrar o seu anuncío caso tenha feito faça o login novamente
+  </div>
+</div>   <?php   } ?>
 </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
