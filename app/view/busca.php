@@ -51,7 +51,8 @@ $resultados = $st->fetchAll(PDO::FETCH_ASSOC);
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-
+  <link rel="shortcut icon" href="../../img/logo.ico"/>
+  
 </head>
 <body class="bg-white">
   

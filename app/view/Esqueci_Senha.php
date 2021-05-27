@@ -9,7 +9,8 @@
     <style> *{ font-family: "Baloo Tamma 2" !important;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
     <!-- CSS only -->
-   
+    <link rel="shortcut icon" href="../../img/logo.ico"/>
+  
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"

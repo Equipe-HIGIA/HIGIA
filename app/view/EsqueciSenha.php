@@ -7,7 +7,8 @@
      <title>Document</title>
      <style> *{ font-family: "Baloo Tamma 2" !important;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap" rel="stylesheet">  
-   
+    <link rel="shortcut icon" href="../../img/logo.ico"/>
+  
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
  </head>
@@ -43,7 +44,7 @@ require_once("../backend/db/connection.class.php");
    
    
  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Senha</label>
+    <label for="exampleInputPassword1" class="form-label">Nova Senha</label>
     <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
   </div>
    
