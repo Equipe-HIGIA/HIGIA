@@ -46,7 +46,6 @@
   </div>
  
   <button  type="submit"class="btn btn-outline-warning">Login</button>
-
 <p class="text-center text-danger">
 <?php
 session_start();
@@ -67,6 +66,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']==0) {
 
 </form>
    
+<a href="Esqueci_Senha.php" class="text-center">Esqueci a senha</a>
    </div>
    <button class="btn btn-primary botao-volta" onclick="window.history.back()">Voltar</button>  
    </div>

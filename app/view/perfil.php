@@ -45,9 +45,7 @@ $pdo = new Connection();
     <main>
 
 
-    <?php
-header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
-?>
+ 
 
 
     <div id="loading" class="position-absolute top-50 start-50 translate-middle" style="display: block">
