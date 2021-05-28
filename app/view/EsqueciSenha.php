@@ -40,12 +40,12 @@ require_once("../backend/db/connection.class.php");
 <div class="card shadow-lg  position-absolute top-50 start-50 translate-middle" style="width: 49rem;">
   <div class="card-body">
     <h5 class="card-title">Recuperar a senha</h5>
-   <form action="" method="POST">
+   <form action="../backend/controller/recuperandoSenha.php" method="POST">
    
-   
+   <input type="hidden" name="cpf" value="<?php echo $recuperar;?>">
  <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Nova Senha</label>
-    <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
+    <input type="password" name="senhanova" class="form-control" id="exampleInputPassword1">
   </div>
    
   <button  type="submit"class="btn btn-outline-warning">Enviar</button>
