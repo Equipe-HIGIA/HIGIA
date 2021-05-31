@@ -17,7 +17,7 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
 
-    <title>Hígia </title>
+    <title>Hígia</title>
   </head>
   <body>
 
