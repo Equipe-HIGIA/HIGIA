@@ -8,7 +8,9 @@ require_once("../db/connection.class.php");
 
 //$clique = 0;
  $id = $_POST['meu_id'];
- $notificacao = "uma pessoa viu o seu contato";
+ 
+ $usuarionome = $_POST['usuarionome'];
+ $notificacao = 'O usuario:' .$usuarionome.' viu o seu contato';
     $stmt = $pdo->prepare("INSERT INTO notificacao(notificacao,identificacao_notifcacao) VALUES(:notificacao, :identificacao_notifcacao)");
     $stmt->bindParam(':notificacao',$notificacao);
     $stmt->bindParam(':identificacao_notifcacao',$id);

@@ -162,6 +162,8 @@ if (count($resultados)) {
   Contato
 </button>
 <input type="hidden"  name="meu_id" value="<?php echo $Resultado['identificacao_anucio']; ?>"/>
+<input type="hidden"  name="usuarionome" value="<?php echo   $_SESSION['usuarionome'] ?>"/>
+
 </form>  <?php }?>
 
 
@@ -400,7 +402,8 @@ $.ajax({
    dataType:'html',
    url:"../backend/controller/dados_anucio.php",
    type:"POST",
-   data:({  meu_id:$("input[name='meu_id']").val()}),
+   data:({  meu_id:$("input[name='meu_id']").val(),  usuarionome:$("input[name='usuarionome']").val()
+   }),
    beforeSend: function(data){ 
     //enviar2:$("button[name='enviar2']").val(),
 }, success:function(data){
@@ -431,15 +434,6 @@ $.ajax({
 
 
 
-
-<script type="text/javascript">
-$(document).ready(function(){
-$("#limit-records").change(function(){
-  $('form').submit();
-})
-
-})
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
